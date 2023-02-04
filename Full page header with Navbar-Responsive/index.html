@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Full Page Header</title>
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="u-centered">
+      <div class="call-to-action">
+        <h1 class="call-to-action__title">Sign Up</h1>
+        <p class="call-to-action__description">
+          By becoming member, you gain access to exclusive benefits, one-on-one
+          tutoring, and more.
+        </p>
+        <button class="call-to-action__button" type="button">Sign me up!!</button>
+      </div>
+    </div>
+  </header>
+  <div class="bar">
+    <div class="bar-content u-centered">
+      <h1 class="bar__logo">LOGO</h1>
+      <input type="checkbox"id="inpNavToggle">
+      <label class="bar__nav-toggle" for="inpNavToggle">
+        <i class="material-icons">menu</i>
+      </label>
+      <nav class="nav">
+        <a href="#" class="nav__link">Tutorials</a>
+        <a href="#" class="nav__link">Courses</a>
+        <a href="#" class="nav__link">Online Tutoring</a>
+        <a href="#" class="nav__link">Work with ME</a>
+      </nav>
+    </div>
+  </div>
+  <main class="u-centered" style="padding: 30px; font-weight: 500;">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. At 
+    veritatis maiores, ut blanditiis aliquam perferendis perspiciatis a
+    ccusantium quas! Ea blanditiis magni suscipit reiciendis magnam aliquid
+     labore veniam laborum. Nam ipsa doloremque placeat unde reiciendis 
+     rerum dolore quaerat, quisquam excepturi blanditiis repudiandae 
+     neque et sapiente optio! Nihil voluptatem earum iure illo ducimus eve
+     niet incidunt explicabo voluptates exercitationem amet voluptatum quasi 
+     fuga ipsa quisquam eligendi dolorem ut, nesciunt eaque blanditiis r
+     epellendus atque? Praesentium impedit laudantium incidunt faci
+     lis ratione exercitationem corporis
+      tempora consequatur assumenda! Id in dolorem do
+      loribus dolor. Quas quisquam eius eos omnis dolor qui 
+      similique, alias reiciendis ea 
+      debitis magni aspernatur?
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident neque ab culpa natus reprehenderit repellendus autem, dicta quibusdam a architecto maiores fugit quos corrupti tempora deserunt nesciunt adipisci quidem iusto. Tempora, impedit fugiat consequatur voluptas neque cumque minus culpa molestiae amet? Hic quod tempore beatae voluptatem asperiores nostrum nihil nisi?
+
+  </main>
+  <script>
+    document.addEventListener("DOMContentLoaded",()=>{
+      const observer = new IntersectionObserver(entries=>{
+        document.querySelector(".bar").classList.toggle("bar-bg",entries[0].intersectionRatio<0.9)
+      },{
+        threshold:0.9
+      });
+      observer.observe(document.querySelector(".header"))
+    });
+  </script>
+</body>
+</html>

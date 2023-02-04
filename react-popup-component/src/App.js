@@ -4,7 +4,7 @@ import Popup from "./components/Popup/Popup";
 function App() {
   const [buttonPopup, setButtonPopup] = useState(false)
   const [timedPopup, setTimedPopup] = useState(false)
-
+  
   useEffect(() => {
     setTimeout(()=>{
       setTimedPopup(true)
