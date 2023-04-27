@@ -23,8 +23,8 @@
   z-index: 2;
   cursor: pointer;
   transition: .5s ease-out!important;
-}
-
+} 
+ 
 .drawer-container {
   position: fixed;
   top: 0;
@@ -33,7 +33,7 @@
   background-color: black;
   right: -200px;
   transition: all .5s ease;
-  z-index: 999999999999999999999999999999999999999999999999999999999999999999999;
+  z-index: 9999;
 }
 
 .drawer-open {
