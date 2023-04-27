@@ -1,0 +1,41 @@
+.page-container {
+  position: relative;
+  min-width: 100vw;
+}
+
+.main-page {
+  min-height: 100vh;
+}
+
+.style-before-drawer {
+  background-color: transparent;
+}
+
+.style-after-drawer {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.8);
+  z-index: 2;
+  cursor: pointer;
+  transition: .5s ease-out!important;
+}
+
+.drawer-container {
+  position: fixed;
+  top: 0;
+  color: white;
+  height: 100vh;
+  background-color: black;
+  right: -200px;
+  transition: all .5s ease;
+  z-index: 999999999999999999999999999999999999999999999999999999999999999999999;
+}
+
+.drawer-open {
+  right: 0 !important;
+}
