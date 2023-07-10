@@ -1,8 +1,12 @@
-import React from 'react'
+import { Box, CssBaseline } from '@mui/material'
+import PrimaryAppBar from './templates/PrimaryAppBar'
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <Box>
+      <CssBaseline/>
+      <PrimaryAppBar/>
+    </Box>
   )
 }
 
