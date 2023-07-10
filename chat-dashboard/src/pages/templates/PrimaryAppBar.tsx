@@ -18,7 +18,7 @@ const PrimaryAppBar = () => {
       }}>
         <Link href='/' underline='none' color='inherit'>
           <Typography variant='h6' noWrap component="div" sx={{display:{fontWeight:700,letterSpacing:'-0.5px'}}}>
-            Hey
+            DJCHAT
           </Typography>
         </Link>
       </Toolbar>
