@@ -1,5 +1,5 @@
 import {AppBar, Toolbar, Link, Typography} from '@mui/material'
-import { useTheme } from '@mui/material/styles'
+import { useTheme, responsiveFontSizes } from '@mui/material/styles'
 // import { Link } from 'react-router-dom'
 
 const PrimaryAppBar = () => {
