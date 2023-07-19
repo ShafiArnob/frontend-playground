@@ -18,6 +18,7 @@ const PrimaryAppBar = () => {
   const toggleDrawer = (open:boolean) => (event:React.MouseEvent)=>{
     setSideMenu(open)
   }
+  
   return (
     <AppBar 
       sx={{
