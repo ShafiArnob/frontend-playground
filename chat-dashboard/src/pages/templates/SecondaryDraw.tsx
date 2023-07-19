@@ -1,11 +1,10 @@
 import React from 'react'
 import { Box, Typography } from '@mui/material'
 import { useTheme } from '@mui/material/styles'
-import axios from 'axios'
-
 
 const SecondaryDraw = () => {
   const theme = useTheme()
+
   return (
     <Box
       sx={{
