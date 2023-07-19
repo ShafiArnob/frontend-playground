@@ -30,12 +30,13 @@ const PopularChannels:React.FC<Props> = ({open}) => {
     fetchData();
   },[])
 
-  useEffect(()=>{
-    console.log(dataCRUD);
-  },[dataCRUD])
+  // useEffect(()=>{
+  //   console.log(dataCRUD);
+  // },[dataCRUD])
+
   return (
     <>
-      <Box sx={{height:50, p:2, display:"flex", alignItems:"center", flex:"1 1 100%", backgroundColor:"pink"}}>
+      <Box sx={{height:50, p:2, display:"flex", alignItems:"center", flex:"1 1 100%"}}>
         <Typography sx={{display:open?"block":"none"}}>Popular</Typography>
       </Box>
       <List>

@@ -2,7 +2,11 @@ import React from 'react'
 import { Box, Typography } from '@mui/material'
 import { useTheme } from '@mui/material/styles'
 
-const SecondaryDraw = () => {
+type SecondaryDrawProps = {
+  children: React.ReactNode
+}
+
+const SecondaryDraw = ({children}:SecondaryDrawProps) => {
   const theme = useTheme()
 
   return (
@@ -16,9 +20,7 @@ const SecondaryDraw = () => {
         overflow: "auto",
       }}
     >
-      {[...Array(100)].map((_, i)=>(
-              <Typography key={i}>{i}</Typography>
-            ))}
+      {children}
     </Box>
   )
 }
