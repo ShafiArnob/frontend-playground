@@ -2,7 +2,7 @@ import {List,ListItem,ListItemButton,ListItemText,Box,useTheme,ListItemIcon,Typo
 } from "@mui/material";
 import useCrud from "../../hooks/useCrud";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import { MEDIA_URL } from "../../config";
 
@@ -13,16 +13,17 @@ interface Category {
   icon: string;
 }
 
-const ServerChannels = () => {
-  const theme = useTheme();
-  const { dataCRUD, error, isLoading, fetchData } = useCrud<Category>(
-    [],
-    "server/category/"
-  );
+interface ServerChannelsProps {
+  data: Server[];
+}
 
-  useEffect(()=>{
-    fetchData()
-  },[])
+const ServerChannels = (props:ServerChannelsProps) => {
+  const theme = useTheme()
+  const {serverId} = useParams()
+  const {data} = props
+
+  console.log(data);
+  
   return (
     <>
       <Box 
@@ -40,15 +41,13 @@ const ServerChannels = () => {
         Channels
       </Box>
       <List sx={{py:0}}>
-         {dataCRUD.map((item)=>(
-            <ListItem key={item.id} disablePadding sx={{display:"block"}} dense={true}>
-              <Link to={`/explore/${item.name}`} style={{textDecoration:"none", color:"inherit"}}>
+         {data.flatMap(obj=>
+          obj.channel_server.map((item)=>(
+            <ListItem key={item.id} disablePadding sx={{display:"block", maxHeight:"40px"}} dense={true}>
+              <Link to={`/server/${serverId}/${item.id}`} style={{textDecoration:"none", color:"inherit"}}>
                 <ListItemButton sx={{minHeight:48}}>
-                  <ListItemIcon sx={{minWidth:0, justifyContent:"center"}}>
-                    <ListItemAvatar sx={{minWidth:"0px"}}>
-                      <img src={`${MEDIA_URL}${item.icon}`} style={{width:"25px", height:"25px", display:"block", margin:"auto"}}/>
-                    </ListItemAvatar>
-                  </ListItemIcon>
+                  
+                  
                   <ListItemText 
                     primary={
                       <Typography variant='body1' textAlign="start" paddingLeft={1} sx={{bgcolor:"inherit"}}>
@@ -58,7 +57,10 @@ const ServerChannels = () => {
                 </ListItemButton>
               </Link>
             </ListItem>
-         ))}
+            )
+          )
+         )
+        }
       </List>
     </>
   )
