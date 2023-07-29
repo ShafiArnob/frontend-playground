@@ -22,7 +22,7 @@ const ServerChannels = (props:ServerChannelsProps) => {
   const {serverId} = useParams()
   const {data} = props
 
-  console.log(data);
+  // console.log(data);
   
   return (
     <>
