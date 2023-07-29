@@ -2,10 +2,14 @@ import useWebSocket from "react-use-websocket"
 import {useState} from "react"
 import { useParams } from "react-router-dom"
 
-
+interface Message {
+  sender:string,
+  content:string,
+  timestamp:string
+}
 
 const MessageInterface = () => {
-  const [newMessage, setNewMessage] = useState<string[]>([])
+  const [newMessage, setNewMessage] = useState<Message[]>([])
   const [message, setMessage] = useState("")
   const {serverId, channelId} = useParams()
   
@@ -32,10 +36,10 @@ const MessageInterface = () => {
   return (
     <div>
       {
-        newMessage.map((msg, index)=>{
+        newMessage.map((msg:Message, index:number)=>{
           return (
             <div key={index}>
-                <p>{msg}</p>
+                <p>{msg.content}</p>
             </div>
           )
         })
