@@ -1,6 +1,8 @@
 import useWebSocket from "react-use-websocket"
 import {useState} from "react"
 import { useParams } from "react-router-dom"
+import useCrud from "../../hooks/useCrud"
+import { IServer } from "../../@types/server"
 
 interface Message {
   sender:string,
@@ -12,12 +14,25 @@ const MessageInterface = () => {
   const [newMessage, setNewMessage] = useState<Message[]>([])
   const [message, setMessage] = useState("")
   const {serverId, channelId} = useParams()
-  
+  const {fetchData} = useCrud<IServer>(
+    [],
+    `messages/?channel_id=${channelId}`
+    )
+
   const socketUrl = channelId ? `ws://127.0.0.1:8000/${serverId}/${channelId}` : null
   
   const {sendJsonMessage} = useWebSocket(socketUrl, {
-    onOpen: () => {
-      console.log("Connected");
+    onOpen: async () => {
+      try{
+        const data = await fetchData()
+        setNewMessage([])
+        setNewMessage(Array.isArray(data)?data:[])
+        console.log("Connected");
+      }
+      catch(err){
+        console.log(err);
+        
+      }
     },
     onClose: () => {
       console.log("Closed");
