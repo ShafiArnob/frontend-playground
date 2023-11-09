@@ -1,10 +1,13 @@
 const redux = require("redux");
 const createStore = redux.createStore;
-const bindActionCreators = redux.bindActionCreators
+const bindActionCreators = redux.bindActionCreators;
 
 // action types
 const CAKE_ORDERED = "CAKE_ORDERED";
-const CAKE_RESTOCED = "CAKE_RESTOCED"
+const CAKE_RESTOCED = "CAKE_RESTOCED";
+
+const ICECREAM_ORDERED = "ICECREAM_ORDERED";
+const ICECREAM_RESTOCED = "ICECREAM_RESTOCED";
 
 //action
 function orderCake() {
@@ -14,15 +17,30 @@ function orderCake() {
   };
 }
 
-function reStockCake(qty=1){
-  return{
+function reStockCake(qty = 1) {
+  return {
     type: CAKE_RESTOCED,
-    payload:qty
-  }
+    payload: qty,
+  };
+}
+
+function orderIceCream(qty = 1) {
+  return {
+    type: ICECREAM_ORDERED,
+    payload: qty,
+  };
+}
+
+function reStockIceCream(qty = 1) {
+  return {
+    type: ICECREAM_RESTOCED,
+    payload: qty,
+  };
 }
 
 const initialState = {
   numOfCakes: 10,
+  numOfIceCreams: 20,
 };
 
 // readucers
@@ -35,10 +53,20 @@ const reducer = (state = initialState, action) => {
         numOfCakes: state.numOfCakes - 1,
       };
     case CAKE_RESTOCED:
-      return{
+      return {
         ...state,
-        numOfCakes: state.numOfCakes + action.payload
-      }
+        numOfCakes: state.numOfCakes + action.payload,
+      };
+    case ICECREAM_ORDERED:
+      return {
+        ...state,
+        numOfIceCreams: state.numOfIceCreams - action.payload,
+      };
+    case ICECREAM_RESTOCED:
+      return {
+        ...state,
+        numOfIceCreams: state.numOfIceCreams + action.payload,
+      };
     default:
       return state;
   }
@@ -59,9 +87,17 @@ const unsubscribe = store.subscribe(() =>
 // store.dispatch(reStockCake(3))
 
 //action creators
-const action = bindActionCreators({orderCake, reStockCake}, store.dispatch)
-action.orderCake()
-action.orderCake()
-action.reStockCake(2)
+const action = bindActionCreators(
+  { orderCake, reStockCake, orderIceCream, reStockIceCream },
+  store.dispatch
+);
+action.orderCake();
+action.orderCake();
 
-unsubscribe()
+action.orderIceCream()
+action.orderIceCream()
+
+action.reStockCake(2);
+action.reStockIceCream(3)
+
+unsubscribe();
