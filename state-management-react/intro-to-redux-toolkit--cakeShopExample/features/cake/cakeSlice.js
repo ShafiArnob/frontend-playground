@@ -27,4 +27,4 @@ const cakeSlice = createSlice({
 
 
 module.exports = cakeSlice.reducer
-module.exports = cakeSlice.actions
+module.exports.cakeActions = cakeSlice.actions
