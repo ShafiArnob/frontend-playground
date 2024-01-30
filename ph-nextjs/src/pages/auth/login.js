@@ -11,6 +11,13 @@ const login = () => {
       >
         Github Login
       </button>
+      <button
+        onClick={() =>
+          signIn("google", { callbackUrl: "http://localhost:3000/" })
+        }
+      >
+        Google Login
+      </button>
     </div>
   );
 };
