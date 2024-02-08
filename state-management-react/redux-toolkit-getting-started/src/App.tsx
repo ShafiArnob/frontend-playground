@@ -1,14 +1,13 @@
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "./redux/store";
 import {
   decrement,
   increment,
   incrementByAmount,
 } from "./redux/features/counter/counterSlice";
+import { useAppDispatch, useAppSelector } from "./redux/hook";
 
 function App() {
-  const { count } = useSelector((state: RootState) => state.counter);
-  const dispatch = useDispatch();
+  const { count } = useAppSelector((state) => state.counter);
+  const dispatch = useAppDispatch();
   return (
     <>
       <div className="flex flex-row space-x-4">
