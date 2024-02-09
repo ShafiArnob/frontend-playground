@@ -18,7 +18,7 @@ import {
   addToCart,
   removeFromCart,
   removeOne,
-} from '@/redux/features/cartSlice';
+} from '@/redux/features/cart/cartSlice';
 
 export default function Cart() {
   const { products, total } = useAppSelector((state) => state.cart);
