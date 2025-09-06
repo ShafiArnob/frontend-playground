@@ -3,6 +3,7 @@ import { Canvas, Rect } from "fabric";
 import { Square } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import Settings from "./components/Settings";
+import CanvasSettings from "./components/CanvasSettings";
 
 const Editor = () => {
   const canvasRef = useRef(null);
@@ -57,6 +58,7 @@ const Editor = () => {
         ref={canvasRef}
       />
       <Settings canvas={canvas} />
+      <CanvasSettings canvas={canvas} />
     </div>
   );
 };
