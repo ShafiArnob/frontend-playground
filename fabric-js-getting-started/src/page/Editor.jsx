@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Canvas, Rect } from "fabric";
 import { Square } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import Settings from "./components/Settings";
 
 const Editor = () => {
   const canvasRef = useRef(null);
@@ -55,6 +56,7 @@ const Editor = () => {
         id="canvas"
         ref={canvasRef}
       />
+      <Settings canvas={canvas} />
     </div>
   );
 };
